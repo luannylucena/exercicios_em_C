@@ -1,5 +1,12 @@
 #include <unistd.h>
 
+//Essa função retorna 1 se o caractere já apareceu anteriormente na string e 0 caso contrário.
+
+//O programa principal (função "main") verifica se o número de argumentos é igual a 3 e, em seguida, itera 
+//sobre a primeira string (argumento 1) e verifica se o caractere atual não apareceu anteriormente na mesma string. 
+//Em caso afirmativo, o programa itera sobre a segunda string (argumento 2) e verifica se o caractere atual também aparece na segunda string. 
+//Se isso acontecer, o programa escreve o caractere na saída padrão. Finalmente, o programa escreve um caractere de nova linha ("\n") na saída padrão para terminar a saída.
+
 int check(int i, char c, char *str)
 {
     int j = 0;
