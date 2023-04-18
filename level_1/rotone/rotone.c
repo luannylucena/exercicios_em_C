@@ -8,29 +8,31 @@
 
 #include <unistd.h>
 
-void ft_putchar(char c)
-{
-    write(1, &c, 1);
-}
-
-void rotone(char *str)
-{
-    while(*str != '\0')
-    {
-        if((*str >= 'a' && *str <= 'y')|| (*str >= 'A' & *str <= 'Y'))
-            ft_putchar(*str + 1);
-        else if(*str == 'z' || *str == 'Z')
-            ft_putchar(*str - 25);
-        else
-            ft_putchar(*str);
-        ++str;
-    }
-}
-
 int main(int argc, char **argv)
 {
+    int i = 0;
+    char aux; //para armazenar a letra nova
+
     if(argc == 2)
-        rotone(argv[1]);
-    write(1, "\n", 1);
-    return(0);
+    {
+        while(argv[1][i])
+        {
+            if(argv[1][i] >= 'a' && argv[1][i] <= 'y' || argv[1][i] >= 'A' && argv[1][i] <='Y')
+            {
+                aux = argv[1][i] + 1; //o aux vai virar a próxima letra.
+                write(1, &aux, 1); //então, escreve a letra nova.
+
+            }
+            else if(argv[1][i] == 'z' || argv[1][i] == 'Z')
+            {
+                aux = argv[1][i] - 25;
+                write(1, &aux, 1);
+            }
+            else
+                write(1, &argv[1][i], 1);
+            i++;
+        }
+        write(1, "\n", 1);
+        return(0);
+    }    
 }
