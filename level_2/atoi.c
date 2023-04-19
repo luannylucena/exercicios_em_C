@@ -3,7 +3,7 @@ int	ft_atoi(const char *str)
 {
     int i = 0;
     int nb = 0;
-    int signal;
+    int signal = 1;
     
     while(str[i] == ' ' || str[i] == '\t')
         i++;
