@@ -1,5 +1,6 @@
 /*Escreva um programa que receba uma ou várias strings e, para cada argumento,
-coloca o primeiro caractere de cada palavra em maiúscula (se for uma letra, obviamente), coloca o restante em letras minúsculas e exibe o resultado na saída padrão, seguido por um \n.
+coloca o primeiro caractere de cada palavra em maiúscula (se for uma letra, obviamente), coloca o restante em letras minúsculas e exibe 
+o resultado na saída padrão, seguido por um \n.
 
 Se uma palavra tiver apenas uma letra, ela deve ser
 capitalizado.
@@ -28,7 +29,7 @@ int main(int argc, char **argv)
                 argv[arg_i][i] = argv[arg_i][i] + 32; 
                 write(1, &argv[arg_i][i], 1); // imprimimos essa letra
             } 
-            else if((argv[arg_i][i] >= 'a' && argv[arg_i][i] <= 'z') && (argv[arg_i][i - 1] == ' ' && argv[arg_i][i - 1] == '\t')|| (i == 0))
+            else if((argv[arg_i][i] >= 'a' && argv[arg_i][i] <= 'z') && (argv[arg_i][i - 1] == ' ' && argv[arg_i][i - 1] == '\t') || (i == 0))
             {
                 argv[arg_i][i] = argv[arg_i][i] - 32;
                 write(1, &argv[arg_i][i], 1);
