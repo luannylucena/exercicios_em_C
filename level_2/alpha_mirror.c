@@ -1,4 +1,5 @@
-/* Escreva um programa chamado alpha_mirror que receba uma string e exiba essa string depois de substituir cada caractere alfabético pelo caractere alfabético oposto, seguido por uma nova linha.
+/* Escreva um programa chamado alpha_mirror que receba uma string e exiba essa string 
+depois de substituir cada caractere alfabético pelo caractere alfabético oposto, seguido por uma nova linha.
 
 'a' torna-se 'z', 'Z' torna-se 'A'
 'd' torna-se 'w', 'M' torna-se 'N'
