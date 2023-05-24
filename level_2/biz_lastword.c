@@ -9,6 +9,7 @@ a corda.
 Se o número de parâmetros não for 1 ou não houver palavras, exiba uma nova linha.
 
 */
+
 int main(int argc, char **argv)
 {
 	int i = 0;
@@ -20,18 +21,18 @@ int main(int argc, char **argv)
 			i++;
 		}
 		i--;
-		while(argv[1][i] == ' ' || argv[1][i] == '\t' && i > 0) //volto os espaços que possam haver depos da palavra.. e ponho i = 0 para evitar lixo de memória.
+		while(argv[1][i] == ' ' || argv[1][i] == '\t' && i > 0)
+		{
+			i++;
+		}
+		while(argv[1][i] != ' ' && argv[1][i] != '\t' && i >= 0)
 		{
 			i--;
 		}
-		while(argv[1][i] != ' ' && argv[1][i] != '\t' && i >= 0) //paro na última letra da palavra e vou voltando. O i>=0 é para não imprimir lixo.
-		{
-			i--;//vou voltando até o começo da palavra
-		}
-		i++; //para ajustar e parar literalmente na primeira letra.
+		i++;
 		while(argv[1][i] != ' ' && argv[1][i] != '\t' && argv[1][i])
 		{
-			write(1, &argv[1][i], 1);
+			white(1, &argv[1][i], 1);
 			i++;
 		}
 	}
