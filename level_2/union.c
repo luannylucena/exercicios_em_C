@@ -1,6 +1,29 @@
 #include <unistd.h>
+/*
+Escreva um programa que receba duas strings e exiba, sem duplicações, os caracteres que aparecem em qualquer uma das strings.
 
-/*A função remove carcteres duplicados. Recebe três argumentos: "c" (o caractere a ser verificado), "str" (a string onde o caractere será procurado) e "index" 
+A exibição será na ordem em que os caracteres aparecem na linha de comando e será seguida por um \n.
+
+Se o número de argumentos não for 2, o programa exibirá \n.
+
+Example:
+
+$>./union zpadinton "paqefwtdjetyiytjneytjoeyjnejeyj" | cat -e
+zpadintoqefwjy$
+$>./union ddf6vewg64f gtwthgdwthdwfteewhrtag6h4ffdhsd | cat -e
+df6vewg4thras$
+$>./union "rien" "cette phrase ne cache rien" | cat -e
+rienct phas$
+$>./union | cat -e
+$
+$>
+$>./union "rien" | cat -e
+$
+*/
+
+
+/*
+A função remove carcteres duplicados. Recebe três argumentos: "c" (o caractere a ser verificado), "str" (a string onde o caractere será procurado) e "index" 
 (a posição atual do caractere na string). A função percorre a string do início até a posição "index", verificando se o caractere "c" já apareceu anteriormente 
 na string. Se o caractere já tiver aparecido antes, a função retorna 0, indicando que o caractere atual deve ser ignorado. Se o caractere não tiver aparecido antes, 
 a função retorna 1, indicando que o caractere atual deve ser mantido na string final.*/

@@ -32,24 +32,27 @@ int main(int argc, char **argv)
 		
 	if(argc == 2)
 	{   
-		while(argv[1][i] != '\0')
+		while(argv[1][i])
 			i++;
+		
 		while(i >= 0)
 		{
-			while( argv[1][i] == '\0' || argv[1][i] == ' ' || argv[1][i] == '\t')
-				i--; //considerando que tem espaços e tabs no final
-			end = i; //guardo a posição do final da palavra
+			while(argv[1][i] == '\0' || argv[1][i] == ' ' || argv[1][i] == '\t')
+				i--; // se houver espaços no final, volto e encontro uma letra.
+			end = i; // guardo a posição do final da palavra
+
 			while(argv[1][i] && argv[1][i] != ' ' && argv[1][i] != '\t')
 				i--; //ando até o próximo espaço
-			start = i + 1; //guardo a posiçãod o espaço + 1, que é o caracter. que daí, é o star da palavra, não da string.
-			int  flag; //quero se é a primeira palavra da string. 
-			flag = start; //daí, declaro a flag. 
+			start = i + 1; //guardo a posição do espaço + 1, que é o caracter. que daí, é o start da palavra, não da string.
+
+			int  flag; // quero se é a primeira palavra da string. 
+			flag = start; // daí, declaro a flag. 
 			while(start <= end)
 			{
 				write (1, &argv[1][start],1);
 				start++;		
 			}
-			if (flag != 0) //0 é a posição do primeiro caracter da string. 
+			if (flag != 0) // 0 é a posição do primeiro caracter da string. 
 			{
 				write(1, " ", 1); //se não for o primeiro, cooloco o espaço, pq vou ter mais palavras. 
 			}
