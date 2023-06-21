@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 			i++;
 		int start = i;
 
-		while(argv[1][i] != ' ' && argv[1][i] != '\t' && argv[1][i] != '\0') //pulo a primra palavra todinha
+		while(argv[1][i] != ' ' && argv[1][i] != '\t' && argv[1][i] != '\0') //pulo a primeira palavra todinha
 			i++;
 		while(argv[1][i] == ' ' || argv[1][i] == '\t') //pulo todos os espaços entre a primeira e asegunda palavra, para nao imprimir espaços antes da primeira palavra.
 			i++;
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 		{
 			write(1, &argv[1][i], 1);
 			i++;
-			if(argv[1][i] == ' ' || argv[1][i] == '\t' || argv[1][i] == '\0') // if para verificação de espaços amais entre as palavras
+			if(argv[1][i] == ' ' || argv[1][i] == '\t' || argv[1][i] == '\0') // if para verificação de espaços a mais entre as palavras
 			{
 				write(1, " ", 1);
 				while(argv[1][i] == ' ' || argv[1][i] == '\t') // para ignorar espaços ou tabs excedentes entre as palavras.
