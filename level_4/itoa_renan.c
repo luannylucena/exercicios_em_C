@@ -21,28 +21,36 @@ char	*ft_itoa(int nbr);*/
 char *ft_itoa(int nbr)
 {
     int i = 0;
-    int cpy_number = nbr; //vai guardar uma cópia do numero para que eu mexa com ela. 
-    char *str; //a string que vai ser criada
+    long cpy_number = nbr; // vai guardar uma cópia do número para que eu mexa com ela. 
+    char *str; // a string que vai ser criada
 
-    //aqui é nequanto for dirente de zero, pois qdo a divisçao for zero, acabou os numeros.
+    //aqui é enquanto for diferente de zero, pois qdo a divisão for zero, acabou os numeros.
     do //dessa forma ele sempre emtra no while. para entrar qdo for zero, pois se não perco um dígito.
     {
         nbr = nbr/10; 
         i++; //aqui dou mais ++ pq estou contando.. dividi por 10, tenho 1 número, então somo. Depois de novo, tenho 2 núemros e assim vai.. 
     } while(nbr != 0);
 
+    if(cpy_number < 0) // para tratar sinal de menos. 
+        i++; // para ter o espaço na memória para colocar o sinal de menos.
+    
     str = malloc(sizeof(char) * (i + 1));
     if(str == NULL)
         return(NULL);
     str[i] = '\0';
-
-    //agora vou mexer com a cópia, que foi onde guardei meu núemro.
-    while(cpy_number)
+    
+    if(cpy_number < 0) // para escrever o sinal de menos na saída.
     {
-        str[i - 1] = cpy_number % 10 + '0'; //aqui eu tenho o dígito 4 (ex: 1234), pois o módulo guarda o resto, o resto aqui é o 4, primeiro núemro que vou botar na posição
-        cpy_number = cpy_number/10; //aqui eu divido por 10 pra diminuir o número(seria como um i-- pra passar pro próximo caracter)
-        i--;
+        str[0] = '-';
+        cpy_number *= (-1); // para não dar problema embaixo. 
     }
+    //agora vou mexer com a cópia, que foi onde guardei meu número.
+    do
+    {
+        str[i - 1] = cpy_number % 10 + '0'; // aqui eu tenho o dígito 4 (ex: 1234), pois o módulo guarda o resto, o resto aqui é o 4, primeiro núemro que vou botar na posição
+        cpy_number = cpy_number/10; // aqui eu divido por 10 pra diminuir o número(seria como um i-- pra passar pro próximo caracter)
+        i--;
+    } while(cpy_number);
     return(str);
 }
 
@@ -50,7 +58,12 @@ int main()
 {
     char *str;
     
-    str = ft_itoa(-1234);
-    printf("%s", str);
+    str = ft_itoa(-2147483648);
+    printf("%s\n", str);
+    str = ft_itoa(2147483647);
+    printf("%s\n", str);
+    str = ft_itoa(-2);
+    printf("%s\n", str);
+    str = ft_itoa(0);
+    printf("%s\n", str);
 }
-
