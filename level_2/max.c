@@ -1,16 +1,15 @@
 int max(int *tab, unsigned int len)
 {
-    unsigned int i = 0;
-    unsigned int result;
+    int max;
 
-    result = tab[i]; // atribui o valor do primeiro elemento do array "tab" à variável "result"
-    while(i < len)
-    {
-        if(result < tab[i])
-        {
-            result = tab[i];
-        }
-        i++;
-    }
-    return(result);
+	if(!tab)
+		return(0);
+	max = tab[len - 1];
+	while((int)len >= 0)
+	{
+		if(max < tab[len -1])
+			max = tab[len-1];
+		len--;
+	}
+	return(max);
 }
