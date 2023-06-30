@@ -13,34 +13,40 @@ $
 $>
 ____
 */
-
-
-#include <unistd.h>
 #include <unistd.h>
 
-int main(int argc, char const *argv[])
+
+int is_space(char str)
 {
-    int i = 0;;
-    int space;
+    if (str == ' ' || str == '\t')
+        return 1;
+    else
+        return 0;
+}
 
-    if (argc == 2)
-    {
-        while(argv[1][i] == ' ' || argv[1][i] == '\t') //pulo espaços iniciais
-            i++;
-        while(argv[1][i])
-        {
-            if(argv[1][i] == ' ' || argv[1][i] == '\t')
-                space = 1; //verdadeiro para espaços.
-            if(argv[1][i] != ' ' && argv[1][i] != '\t')
-            {
-                if(space) //se houver espaço
-                    write(1, "   ", 3);
-                space = 0; //é definida como 0 para indicar que não há espaços consecutivos após o caractere atual.
-                write(1, &argv[1][i], 1);
-            }
-            i++;
-        }
-    }
-    write(1, "\n", 1);
-    return (0);
+int main(int argc, char const **argv)
+{
+	int i = 0;
+	int flg = 0;
+
+	if (argc == 2)
+	{
+		while(is_space(argv[1][i]))
+			i++;
+		while(argv[1][i])
+		{
+			if(is_space(argv[1][i]))
+				flg = 1;
+			else
+			{
+				if(flg)
+					write(1, "   ", 3);
+				flg = 0;
+				write(1, &argv[1][i], 1);
+			}
+            ++i;
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
 }
