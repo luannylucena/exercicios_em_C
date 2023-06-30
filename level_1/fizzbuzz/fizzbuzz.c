@@ -2,9 +2,11 @@
 
 int ft_write_number(int number)
 {
-    char str[10] = "0123456789";
+    char str[10] = "0123456789"; // array de caracteres
 
-    if (number > 9)
+    // se for maior que 9, tem mais de 1 dígito. Então, a função chama recursivamnte a ela mesma, divididin o parâmetro 'num' por 10, removendo o último dígito, até que todos sejam processados.
+
+    if (number > 9) 
         ft_write_number(number / 10);
     write(1, &str[number % 10], 1);
 }
