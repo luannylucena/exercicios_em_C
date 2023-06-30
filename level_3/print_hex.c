@@ -16,33 +16,35 @@ $> ./print_hex | cat -e
 $
 */
 
+#include <unistd.h>
 
+int ft_atoi(char *str)
+{
+    int nb = 0;
 
-#include <stdlib.h>
-#include <stdio.h>
-#define HEX "0123456789abcdef"
-
-
+    while(*str)
+    {
+        nb = nb * 10 + (*str - '0');
+        ++str;
+    }
+	return(nb);
+}
 
 void print_hex(int num)
 {
-    if(num > 0)
-    {
-        print_hex(num / 16);
-        int rest = num % 16;
-        printf("%c", HEX[rest]);
+    char digit[] = "0123456789abcdef";
 
-    }
+    if(num >= 16)
+        print_hex(num % 16);
+    write(1, &digit[num % 16], 1);
 }
 
 int main(int argc, char **argv)
 {
     if(argc == 2)
     {
-        print_hex(atoi(argv[1]));
+        print_hex(ft_atoi(argv[1]));
     }
-    printf("\n");
+    write(1, "\n", 1);
     return(0);
-
 }
-
