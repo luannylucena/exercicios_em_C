@@ -42,7 +42,9 @@ char  **ft_split(char *str)
     word = malloc(sizeof(char *) * (count_words + 1));
     if(word == NULL)
         return(NULL);
-    while(line < count_words)
+
+    i = 0;
+    while(str[i] && line < count_words)
     {
         if(str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
         {
@@ -50,11 +52,14 @@ char  **ft_split(char *str)
         }
         else
         {
+            j = i;
             while(str[j] != ' ' && str[j] != '\t' && str[j] != '\n' && str[j] != '\0')
                 j++;
             word[line] = malloc(sizeof(char) * ((j - i) + 1)); 
             if(word[line] == NULL)
                 return(NULL);
+                
+            k = 0;
             while(i < j) //o i é ocomeço da minha palavra e o j é o final de cada palavra.
             {
                 word[line][k] = str[i]; //teho 2 índices pq é ponteiro de ponteiro.
@@ -62,6 +67,7 @@ char  **ft_split(char *str)
                 i++;
             }
             word[line][k] = '\0';
+            line++;
         }
     }
     word[line] = NULL; //condição que a quesoa pede. Que termine com null.
