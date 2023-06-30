@@ -1,15 +1,23 @@
 #include <unistd.h>
 
-void ft_putnbr(int n)
+// void ft_putnbr(int n)
+// {
+//     char digit;
+
+//     if(n >= 10)
+//         ft_putnbr(n / 10);
+//     digit = (n % 10) + '0';
+//     write(1, &digit, 1);
+// }
+
+void ft_putnbr(int num)
 {
-    char digit;
+    char str[10] = "01234567";
 
-    if(n >= 10)
-        ft_putnbr(n / 10);
-    digit = (n % 10) + '0';
-    write(1, &digit, 1);
+    if(num > 9)
+        ft_putnbr(num / 10);
+    write(1, &str[num % 10], 1);
 }
-
 int main(int argc, char **argv)
 {
     (void) argv;
